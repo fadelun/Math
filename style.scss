@@ -1,0 +1,168 @@
+$border-test : 2px solid white;
+$shadow : 4px 4px 10px rgba(0, 0, 0, 0.562);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: lightgray;
+    font-family: 'Hug Me Tight',serif;
+
+    header{
+        width: 100vw;
+        height: 80px;
+        background: #1D3557;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3em;
+        
+
+        h1{
+            font-family: 'Minecrafter', sans-serif;
+        }
+
+        ul{
+            display: flex;
+            justify-content: space-around;
+            width: 40%;
+            list-style: none;
+            cursor: pointer;
+            li{
+                position: relative;
+                &.active{
+                    color: lightskyblue;
+
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: -4px;
+                        width: 100%;
+                        height: 2px;
+                        background: lightskyblue;
+                    }
+                }
+
+                a{
+                    color: whitesmoke;
+                    text-decoration: none;
+                }
+
+                
+
+            }
+
+        }
+    }
+
+    .container{
+        width: 100vw;
+        padding: 10px;
+        display: flex;
+        .question{
+            width: 76vw;
+            height: 80vh;
+            box-shadow: $shadow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7.2rem;
+            letter-spacing: 14px;
+            color: gray;
+            background: #f6fff3;
+            border-radius: 4px;
+
+            #num1{
+                color: #0dc7ce;
+            }
+            #num2{
+                color: #E63946;
+            }
+            #answer{
+                color: #4fff15;
+            }
+        }
+
+        .answers{
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0 4px;
+            font-size: 46px;
+
+            .options{
+                width: 100%;
+                height: 33.3%;
+                color: white;
+                box-shadow: $shadow;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+                cursor: pointer;
+
+                // function 
+                @mixin backgroundColor($bg ){
+                    background: $bg;
+                    &:hover{
+                        background:  $bg+ 46;
+                    }
+                }
+
+                &:nth-of-type(1){
+                    @include backgroundColor(#49b683)
+                }
+                &:nth-of-type(2){
+                    margin: 6px 0;
+                    @include backgroundColor(#e74c59)
+                }
+                &:nth-of-type(3){                    
+                    @include backgroundColor(#ffd176)
+                }
+            }
+        }
+    }
+
+    @media (max-width: 500px){
+        header{
+            width: 100vw;
+            height: 80px;
+            background: #1D3557;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0 3em;
+            flex-direction: column;
+
+            ul{
+                width: 100%;
+                justify-content: space-between;
+                li{
+                    font-size: 3.99vw;
+                    
+                }
+    
+            }
+        }
+
+        .container{
+            .question{
+                width: 70vw;
+                height: 90vw;
+                font-size: 12vw;
+                letter-spacing: none;
+            }
+
+            .answers{
+                width: 100%;
+                height: 90vw;
+                font-size: 12vw;
+            }
+        }
+    }
+}
