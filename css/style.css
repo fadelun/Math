@@ -21,6 +21,7 @@ body header {
 
 body header h1 {
   font-family: 'Minecrafter', sans-serif;
+  color : orange;
 }
 
 body header ul {
